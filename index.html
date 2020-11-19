@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Calcolatore</h1>
+    <p>Inserisci due numeri e seleziona l'operazione che vuoi eseguire</p>
+    <label for="1stNumber">Numero 1</label>
+    <select class="" id="1stNumber" name="1stNumber">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+    </select>
+
+    <label for="operation">Operazione</label>
+    <select class="" id="operation" name="operation">
+      <option value="somma">Somma</option>
+      <option value="sottrazione">Sottrazione</option>
+      <option value="moltiplicazione">Moltiplicazione</option>
+      <option value="divisione">Divisione</option>
+    </select>
+
+    <label for="2ndNumber">Numero 2</label>
+    <select class="" id="2ndNumber" name="2ndNumber">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+    </select>
+    <button type="button" id="my_button" name="button">Calcola</button>
+
+    <h2>Risultato:</h2>
+    <p id="result"></p>
+
+    <script type="text/javascript">
+
+    document.getElementById('my_button').addEventListener("click", displayResult);//prendo l'elemento bottone e imposto un evento per cui cliccando sul bottone si attiva la funzione displayResult
+    function displayResult() {//la funzione displayResult
+      var a = document.getElementById('1stNumber').value;//variabile a = il valore scelto dell'elemento select 1stNumber
+      var b = document.getElementById('2ndNumber').value;// variabile b = il valore scelto dell'elemento select 2ndNumber
+      var calc = document.getElementById('operation').value;//variabile calc = il valore scelto dell'elemento select operation
+      switch (calc) {//avendo tanti if uso Switch + Case "per quanto riguarda la variabile calc"
+        case "somma"://nel caso in cui il valore è "somma"
+          document.getElementById('result').innerHTML = parseInt(a) + parseInt(b);//allora nell'elemento p con id "result" stampa il risultato dell'operazione a + b  NB.+ è un operatore di concatenazione per le stringe, di conseguenza bisogna usare parseInt(numero) per poter operare con l'addizione
+          break //poi fermati
+        case "sottrazione"://ecc...
+          document.getElementById('result').innerHTML = a - b;
+          break
+        case "moltiplicazione"://ecc...
+          document.getElementById('result').innerHTML = a * b;
+          break
+        case "divisione"://ecc...
+          document.getElementById('result').innerHTML = a / b;
+      }
+    }
+
+    </script>
+  </body>
+</html>
